@@ -1,0 +1,52 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+		Width="600" Height="450"
+		Icon="\MenuItems\logo.png"
+        x:Class="DiplomApplication.Windows.SpendingBonusesWindow"
+        Title="Обменять бонусы">
+	<Window.Styles>
+		<Style Selector="TextBlock">
+			<Setter Property="FontFamily" Value="Comic Sans MS"/>
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="Background" Value="#fce008"/>
+			<Setter Property="FontFamily" Value="Comic Sans MS"/>
+		</Style>
+	</Window.Styles>
+	
+	<StackPanel HorizontalAlignment="Stretch"
+				Spacing="10">
+		<TextBlock Text="Обменять бонусы на продукцию"
+				   FontSize="22"
+				   HorizontalAlignment="Center"
+				   FontWeight="DemiBold"/>
+		<ListBox x:Name="menuItemsListBox"
+				 Background="White"
+				 Margin="10">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+						<StackPanel Orientation="Horizontal">
+							<StackPanel Orientation="Horizontal"
+										Width="300">
+								<Image Source="{Binding MenuItemImage}"
+									   Width="50"/>
+								<TextBlock Text="{Binding Title}"
+										   Margin="10"/>
+							</StackPanel>
+							<StackPanel Orientation="Horizontal"
+										Margin="20,0,0,0">
+								<TextBlock Text="{Binding BonusInfo}"/>
+								<Button Content="Обменять"
+										Tag="{Binding Id}"
+										IsVisible="{Binding IsExchangeButtonVisible}"
+										Click="SpendBonusesButtonClick"/>
+							</StackPanel>
+						</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</StackPanel>
+</Window>

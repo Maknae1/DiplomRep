@@ -1,0 +1,57 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+		Width="400"
+		Icon="\MenuItems\logo.png"
+        x:Class="DiplomApplication.Windows.UsersProfile"
+        Title="Кабинет пользователя">
+	<Window.Styles>
+		<Style Selector="Button">
+			<Setter Property="Background" Value="#fce008"/>
+			<Setter Property="FontFamily" Value="Comic Sans MS"/>
+		</Style>
+		<Style Selector="TextBlock">
+			<Setter Property="FontFamily" Value="Comic Sans MS"/>
+			<Setter Property="Margin" Value="10"/>
+		</Style>
+		<Style Selector="ListBoxItem">
+
+		</Style>
+	</Window.Styles>
+	<Grid RowDefinitions="2*,2*,2*,*"
+		  ColumnDefinitions="*,*,*">
+		<ListBox x:Name="userListBox"
+				 Margin="10"
+				 Background="Transparent"
+				 Grid.RowSpan="3"
+				 Grid.ColumnSpan="3"
+				 Focusable="False">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<Image Source="{Binding UserPhoto}"
+							   Height="100"
+							   HorizontalAlignment="Center"/>
+						<TextBlock Text="{Binding FIO}"
+								   FontWeight="DemiBold"
+								   HorizontalAlignment="Center"/>
+						<TextBlock Text="{Binding Email}"/>
+						<TextBlock Text="{Binding Phone}"/>
+						<TextBlock Text="{Binding DateOfBirth}"/>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<StackPanel Orientation="Horizontal"
+					Grid.Row="3"
+					HorizontalAlignment="Center">
+			<Button x:Name="editButton"
+					Margin="10"
+					Content="Редактировать информацию"/>
+			<Button x:Name="exitButton"
+					Content="Выйти из профиля"/>
+		</StackPanel>
+	</Grid>
+</Window>

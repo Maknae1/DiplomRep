@@ -1,0 +1,52 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="450"
+		Height="500" Width="450" MinWidth="500" MinHeight="450"
+        x:Class="DiplomApplication.MainWindow"
+		Icon="\MenuItems\logo.png"
+		FontFamily="Comic Sans MS"
+        Title="Авторизация">		
+		<Grid RowDefinitions="*,2*,2*,*"
+			  ColumnDefinitions="*,*,*">
+			<Border CornerRadius="0,0,20,20"
+					Grid.ColumnSpan="3"
+					Background="#fce008"/>
+			<StackPanel Grid.Column="1"
+						Grid.Row="1"
+						Grid.RowSpan="2"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center">
+				<TextBlock Text="Авторизация"
+						   Classes="fontsClass"
+						   FontSize="20"
+						   FontWeight="DemiBold"/>
+				<Separator Margin="0,30,0,0"/>
+				<TextBox Watermark="Логин"
+						 x:Name="loginTextBox"
+						 Margin="0,0,0,10"/>
+				<TextBox Watermark="Пароль"
+						 x:Name="passwordTextBox"
+						 PasswordChar="*"/>
+				<StackPanel Orientation="Horizontal">
+					<Button x:Name="loginButton"
+						Content="Войти"
+						Background="#fce008"
+						Margin="0,20,0,0"
+						HorizontalAlignment="Right"/>
+					<Button x:Name="guestButton"
+						Content="Войти как гость"
+						Background="Transparent"
+						Margin="0,20,0,0"
+						HorizontalAlignment="Right"/>
+				</StackPanel>
+				<TextBlock x:Name="xtb"/>
+			</StackPanel>
+			<Border CornerRadius="20,20,0,0"
+					Grid.ColumnSpan="3"
+					Grid.Row="3"
+					Background="#fce008"/>
+			
+		</Grid>
+	</Window>

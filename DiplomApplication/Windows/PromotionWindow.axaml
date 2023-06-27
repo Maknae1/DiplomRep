@@ -1,0 +1,73 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="450"
+        x:Class="DiplomApplication.Windows.PromotionWindow"
+		Icon="\MenuItems\logo.png"
+		FontFamily="Comic Sans MS"
+        Title="Акции">
+	<Window.Styles>
+		<Style Selector="Button">
+			<Setter Property="Background" Value="#fce008"/>
+		</Style>
+	</Window.Styles>
+	<Grid RowDefinitions="* * *"
+		  ColumnDefinitions=" * * *">
+		<StackPanel HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+					Grid.ColumnSpan="3"
+					Grid.RowSpan="3"
+				IsVisible="False"
+				x:Name="noAutorizationStackPanel">
+			<TextBlock Text="Чтобы восползоваться акциями - войдите в систему или зарегистируйтесь"
+					 FontSize="20"
+					   TextWrapping="Wrap"/>
+			<StackPanel Orientation="Horizontal"
+						HorizontalAlignment="Center">
+				<Button Margin="10"
+						Content="Войти"
+						x:Name="EnterButton"/>
+
+				<Button Content="Зарегистрироваться"
+						Margin="0,10,10,10"
+						x:Name="registrationButton"/>
+			</StackPanel>
+		</StackPanel>
+		<StackPanel x:Name="logginesUserStackPanel"
+					Grid.ColumnSpan="3"
+					HorizontalAlignment="Center"
+					Margin="10">
+			<TextBlock Text="Доступные акции"
+					   FontWeight="DemiBold"
+					   HorizontalAlignment="Center"
+					   FontSize="20"/>
+
+			<StackPanel Margin="0,20,0,0"
+						Orientation="Horizontal"
+						Spacing="10">
+				<StackPanel>
+					<TextBlock Text="Картофель фри за 1 рубль"
+							   FontWeight="DemiBold"/>
+					<TextBlock Text="При покупке от 685р."/>
+				</StackPanel>
+				<Button Content="Получить"
+						Tag="1"
+						Click="GetPromotionButttonClick"/>
+			</StackPanel>
+			<StackPanel Margin="0,20,0,0"
+						Orientation="Horizontal"
+						Spacing="10">
+				<StackPanel>
+					<TextBlock Text="2 Биг Xut по цене одного"
+							FontWeight="DemiBold"/>
+				</StackPanel>
+				<Button Content="Получить"
+						Tag="2"
+						Click="GetPromotionButttonClick"/>
+			</StackPanel>
+		</StackPanel>
+		
+	</Grid>
+	
+</Window>

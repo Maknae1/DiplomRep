@@ -1,0 +1,81 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="450"
+		Width="500"
+		Icon="\MenuItems\logo.png"
+		FontFamily="Comic Sans ms"
+        x:Class="DiplomApplication.BasketWindow"
+        Title="Корзина">
+	<Window.Styles>
+		<Style Selector="Button">
+			<Setter Property="Background" Value="#fce008"/>
+		</Style>
+	</Window.Styles>
+	<Grid RowDefinitions="*,*,*"
+		  ColumnDefinitions="*,2*,*">
+		<ScrollViewer Grid.ColumnSpan="3"
+					Grid.Row="0"
+					Grid.RowSpan="3"
+					Margin="10">	
+		<StackPanel HorizontalAlignment="Center">
+			<TextBlock Text="Корзина"
+					   FontSize="17"
+					   FontWeight="DemiBold"/>
+			<TextBlock x:Name="itemCountTextBlock"/>	
+			
+			<ListBox x:Name="basketListBox"
+					 Background="Transparent"
+					 Margin="10"
+					 ScrollViewer.VerticalScrollBarVisibility="Hidden">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<Image Source="{Binding MenuItemImage}"
+									   Width="40"/>
+								<StackPanel Tag="{Binding Tag}">
+									<TextBlock Text="{Binding Title}"/>
+									<TextBlock Text="{Binding Cost}"/>
+									<TextBlock Text="{Binding Count}"/>
+								</StackPanel>
+								<TextBlock Text="{Binding repeatCount}"/>
+								<Button Content="-"
+										FontWeight="Heavy"
+										Tag="{Binding Tag}"
+										Click="DeleteBasketItemClick"/>
+							</StackPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+			<TextBlock x:Name="commonCostTextBlock"/>
+			<StackPanel Orientation="Horizontal"
+						   Margin="10">
+				<TextBlock Text="Способ оплаты"
+						   Margin="0,0,10,0"/>
+				<ComboBox x:Name="paymentWayComboBox">
+					<ComboBoxItem Content="Наличными при получении"/>
+					<ComboBoxItem Content="Картой при получении"/>
+				</ComboBox>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal"
+						   Margin="10">
+				<TextBlock Text="Адрес предприятия"
+						   Margin="0,0,10,0"/>
+				<ComboBox x:Name="pboAddressComboBox">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel>
+								<TextBlock Text="{Binding Address}"/>
+							</StackPanel>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+			</StackPanel>
+			<Button x:Name="orderButton"
+					Content="Оформить заказ"
+					Margin="10"/>
+		</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</Window>

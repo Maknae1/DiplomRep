@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="400"
+		MinHeight="500" MaxHeight="500" MaxWidth="400" MinWidth="400"
+        x:Class="DiplomApplication.Windows.CompositionWindow"
+		FontFamily="Comic Sans MS"
+		Icon="\MenuItems\logo.png"
+        Title="Состав">
+	<StackPanel HorizontalAlignment="Stretch"
+				VerticalAlignment="Stretch"
+				Spacing="10">
+		<TextBlock HorizontalAlignment="Center"
+				   FontSize="20"
+				   FontWeight="DemiBold"
+				   Text="Состав"/>
+		<ListBox x:Name="compositionListBox"
+				 Background="White">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Spacing="20">
+						<TextBlock Text="{Binding Title}"
+								 FontWeight="DemiBold"/>
+						<TextBlock Text="{Binding Composition}"
+								 TextWrapping="Wrap"/>
+						<TextBlock Text="{Binding Proteints}"/>
+						<TextBlock Text="{Binding Fats}"/>
+						<TextBlock Text="{Binding Carbohydrates}"/>
+						<TextBlock Text="{Binding Calories}"/>
+						<TextBlock Text="{Binding Energyvalue}"/>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<Button x:Name="BackButton"
+				Content="Назад"
+				Background="#fce008"/>
+	</StackPanel>
+</Window>

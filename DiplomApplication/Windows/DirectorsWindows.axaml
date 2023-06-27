@@ -1,0 +1,130 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DiplomApplication.Windows.DirectorsWindows"
+		FontFamily="Commic Sans MS"
+		Icon="\MenuItems\logo.png"
+        Title="Добро пожаловать!">
+	<Window.Styles>
+		<Style Selector="Button.TopButtons">
+			<Setter Property="Margin" Value="10"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="FontSize" Value="16"/>
+			<Setter Property="FontWeight" Value="DemiBold"/>
+			<Setter Property="Foreground" Value="Gray"/>
+		</Style>
+	</Window.Styles>
+	<Grid RowDefinitions="*,4*,4*,*"
+		  ColumnDefinitions="*,3*,2*">
+		<Image HorizontalAlignment="Left"
+			   Margin="10,0,0,0"
+			   x:Name="logoImage"
+				VerticalAlignment="Stretch"/>
+
+		<StackPanel Orientation="Horizontal"
+					Grid.Column="1"
+					HorizontalAlignment="Center">
+
+			<Button Content="Меню"
+					x:Name="menuButton"
+					Classes="TopButtons"/>
+			<Button Content="Акции"
+					x:Name="promotionButton"
+					Classes="TopButtons"/>
+			<Button Content="Отзывы"
+					x:Name="feedBackButton"
+					Classes="TopButtons"/>
+			<Button Content="Работа"
+					x:Name="workButton"
+					Classes="TopButtons"/>
+			<Button Content="Корзина"
+					x:Name="basketButton"
+					Classes="TopButtons"/>
+		</StackPanel>
+
+
+		<StackPanel Orientation="Horizontal"
+					Grid.Column="2"
+					Margin="10"
+					HorizontalAlignment="Right">
+			<TextBlock x:Name="usernameTextBlock"
+					   VerticalAlignment="Center"/>
+			<Button x:Name="userOffice"
+					CornerRadius="60"
+					Margin="10,0,0,0"
+					Background="Transparent">
+				<Border CornerRadius="60"
+						ClipToBounds="True">
+					<Image x:Name="userphotoImage"/>
+				</Border>
+			</Button>
+		</StackPanel>
+		<ScrollViewer Grid.Row="1"
+					  Grid.ColumnSpan="3"
+					  Grid.RowSpan="3"
+					  Margin="10"
+					  x:Name="adScrollViewer">
+			<StackPanel>
+				<TextBlock Text="Добро пожаловать!"
+						   HorizontalAlignment="Center"
+					   	   FontFamily="Comic Sans MS"
+						   FontSize="18"
+						   Margin="10"
+						   FontWeight="DemiBold"/>
+				<Image x:Name="ad1Image"/>
+				<Image x:Name="ad2Image"/>
+				<Image x:Name="ad3Image"/>
+			</StackPanel>
+		</ScrollViewer>
+		<StackPanel x:Name="menuStackPanel"
+					Grid.Row="1"
+					Grid.RowSpan="4"
+					Grid.ColumnSpan="3"
+					IsVisible="False"
+					Margin="10">
+			<StackPanel Orientation="Horizontal"
+						x:Name="menuItemTypeStackPanel"/>
+			<StackPanel Orientation="Horizontal"
+						Spacing="10">
+				<TextBlock Text="Количество бонусов"/>
+				<TextBlock x:Name="bonusCount"/>
+				<Button x:Name="spendButton"
+						Content="Потратить"
+						Background="#fce008"/>
+			</StackPanel>
+			<ListBox x:Name="menuListBox"
+					 ScrollViewer.HorizontalScrollBarVisibility="Visible">
+				<ListBox.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel Orientation="Horizontal"/>
+					</ItemsPanelTemplate>
+				</ListBox.ItemsPanel>
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Width="460"
+									Margin="10">
+							<Image Source="{Binding MenuItemImage}"
+								   Width="360"
+								   HorizontalAlignment="Stretch"/>
+							<TextBlock Text="{Binding Title}"
+									   FontWeight="DemiBold"/>
+							<TextBlock Text="{Binding Description}"
+									   
+									   TextWrapping="Wrap"/>
+							<TextBlock Text="{Binding Cost}"
+									   FontWeight="DemiBold"/>
+							<Button Tag="{Binding Id}"
+									Content="В корзину"
+									Background="#fce008"
+									Click="AddToBasketButtonClick"
+									HorizontalAlignment="Right"
+									FontFamily="Comic Sans MS"/>
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</StackPanel>
+	</Grid>
+</Window>

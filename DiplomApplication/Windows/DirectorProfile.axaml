@@ -1,0 +1,163 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DiplomApplication.Windows.DirectorProfile"
+		FontFamily="Comic Sans MS"
+		Icon="\MenuItems\logo.png"
+        Title="Кабинет директора">
+	<Window.Styles>
+		<Style Selector="Button.TopButtons">
+			<Setter Property="Margin" Value="10"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="FontSize" Value="16"/>
+			<Setter Property="FontWeight" Value="DemiBold"/>
+			<Setter Property="Foreground" Value="Gray"/>
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="Background" Value="#fce008"/>
+		</Style>
+	</Window.Styles>
+	<Grid RowDefinitions="*,*,7*"
+		  ColumnDefinitions="*,*,*">
+		<TextBlock Margin="10"
+				   HorizontalAlignment="Center"
+				   Grid.ColumnSpan="3"
+				   Text="Окно Директора "
+				   FontSize="20"
+				   FontWeight="DemiBold"/>
+		<StackPanel HorizontalAlignment="Center"
+				    Grid.ColumnSpan="3"
+					Orientation="Horizontal"
+					Grid.Row="1">
+			<Button x:Name="employeesButton"
+					Classes="TopButtons"
+					Content="Сотрудники"
+					Click="UsersButtonClick"
+					Margin="5"/>
+			<Button x:Name="ordersButton"
+					Classes="TopButtons"
+					Content="Выручка"
+					Margin="5"/>
+			<Button x:Name="questionairsButton"
+					Classes="TopButtons"
+					Content="Трудоустройство"
+					Margin="5"/>
+			<Button x:Name="editDirectorDataButton"
+					Classes="TopButtons"
+					Content="Директор"
+					Margin="5"/>
+		</StackPanel>
+
+		<StackPanel HorizontalAlignment="Stretch"
+				    Grid.ColumnSpan="3"
+					Grid.Row="2"
+					Margin="10,0,0,0"
+					x:Name="employeesStackPanel">
+			<StackPanel Orientation="Horizontal">
+				<TextBox Watermark="Поиск"
+						 x:Name="searchTextBox"
+						 Margin="0,0,20,0"/>
+				<ComboBox Margin="20,0,0,0"
+						  SelectedIndex="0"
+						  x:Name="sortComboBox">
+					<ComboBoxItem Content="Без сортировки"/>
+					<ComboBoxItem Content="A --> Я"/>
+					<ComboBoxItem Content="Я --> А"/>
+				</ComboBox>
+			</StackPanel>
+			<ListBox x:Name="employeeListBox"
+					 Background="Transparent"
+					 Margin="10"
+					 IsVisible="False">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal">
+							<Image Source="{Binding EmployeeImage}"
+								   Width="200"
+								   Margin="10"/>
+							<StackPanel>
+								<TextBlock Text="{Binding FIO}"/>
+								<TextBlock Text="{Binding INN}"/>
+								<TextBlock Text="{Binding Address}"/>
+								<TextBlock Text="{Binding Phone}"/>
+								<TextBlock Text="{Binding Email}"/>
+								<TextBlock Text="{Binding Passport}"/>
+								<TextBlock Text="{Binding LaborContractNumber}"/>
+								<TextBlock Text="{Binding DateOfBirth}"/>
+								<TextBlock Text="{Binding EmployeePosition}"/>
+							</StackPanel>
+							<StackPanel Margin="10">
+							</StackPanel>
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+
+			<StackPanel HorizontalAlignment="Stretch"
+						Grid.ColumnSpan="3"
+						Grid.Row="2"
+						Margin="10,0,0,0"
+						IsVisible="False"
+						x:Name="ordersStackPanel">
+				<TextBlock FontWeight="DemiBold"
+						   x:Name="proceedTextBlock"
+						   HorizontalAlignment="Right"
+						   Margin="10"/>
+				<ListBox x:Name="ordersListBox"
+					 Background="Transparent"
+						 Height="300"
+					 Margin="10">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<StackPanel>
+									<TextBlock Text="{Binding OrderDate}"/>
+									<TextBlock Text="{Binding Username}"/>
+									<TextBlock Text="{Binding Cost}"/>
+									<TextBlock Text="{Binding SecurityCode}"/>
+								</StackPanel>
+							</StackPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+				<Button Content="Скачать"
+						x:Name="downloadButton"/>
+			</StackPanel>
+
+			<ListBox x:Name="questionairsListBox"
+					 Background="Transparent"
+					 Margin="10"
+					 IsVisible="False">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal"
+									Background="{Binding Color}">
+							<Image Source="{Binding EmployeeImage}"
+								   Width="200"
+								   Margin="10"/>
+							<StackPanel>
+								<TextBlock Text="{Binding FIO}"/>
+								<TextBlock Text="{Binding Phone}"/>
+								<TextBlock Text="{Binding Email}"/>
+								<TextBlock Text="{Binding DateOfBirth}"/>
+								<TextBlock Text="{Binding Status}"/>
+							</StackPanel>
+							<StackPanel Margin="10">
+								<Button Content="Пригласить"
+										Tag="{Binding QuestionairId}"
+										Margin="10"
+										Click="WelcomeButtonClick"/>
+								<Button Content="Отклонить"
+										Tag="{Binding QuestionairId}"
+										Click="RejectButtonClick"
+										Margin="10,0,10,10"/>
+							</StackPanel>
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</StackPanel>
+	</Grid>
+</Window>

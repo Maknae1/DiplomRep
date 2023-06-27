@@ -1,0 +1,112 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		Width="800" Height="450"
+		FontFamily="Comic Sans MS"
+		Icon="\MenuItems\logo.png"
+        x:Class="DiplomApplication.Windows.AdminProfile"
+        Title="Кабинет администратора">
+	<Window.Styles>
+		<Style Selector="Button.TopButtons">
+			<Setter Property="Margin" Value="10"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="FontFamily" Value="Comic Sans MS"/>
+			<Setter Property="FontSize" Value="16"/>
+			<Setter Property="FontWeight" Value="DemiBold"/>
+			<Setter Property="Foreground" Value="Gray"/>
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="Background" Value="#fce008"/>
+		</Style>
+	</Window.Styles>
+	<Grid RowDefinitions="*,*,7*"
+		  ColumnDefinitions="*,*,*">
+		<TextBlock Margin="10"
+				   HorizontalAlignment="Center"
+				   Grid.ColumnSpan="3"
+				   Text="Окно администратора"
+				   FontSize="20"
+				   FontWeight="DemiBold"/>
+		<StackPanel HorizontalAlignment="Center"
+				    Grid.ColumnSpan="3"
+					Orientation="Horizontal"
+					Grid.Row="1">
+			<Button x:Name="usersButton"
+					Classes="TopButtons"
+					Content="Пользователи"
+					Margin="5"/>
+			<Button x:Name="menuItemsButton"
+					Classes="TopButtons"
+					Content="Меню"
+					Margin="5"/>
+			<Button x:Name="editAdminDataButton"
+					Classes="TopButtons"
+					Content="Админ"
+					Margin="5"/>
+		</StackPanel>
+
+		<StackPanel HorizontalAlignment="Stretch"
+				    Grid.ColumnSpan="3"
+					Grid.Row="2"
+					Margin="10,0,0,0">
+			<StackPanel Orientation="Horizontal">
+				<TextBox Watermark="Поиск"
+						 x:Name="searchTextBox"
+						 Margin="0,0,20,0"/>
+				<ComboBox Margin="20,0,0,0"
+						  SelectedIndex="0"
+						  x:Name="sortComboBox">
+					<ComboBoxItem Content="Без сортировки"/>
+					<ComboBoxItem Content="A --> Я"/>
+					<ComboBoxItem Content="Я --> А"/>
+					<ComboBoxItem Content="По убыванию цены"
+								  IsVisible="False"
+								  x:Name="toBottomComboBoxItem"/>
+					<ComboBoxItem Content="По возрастанию цены"
+								  IsVisible="False"
+								  x:Name="toTopComboBoxItem"/>
+				</ComboBox>
+			</StackPanel>
+			<ListBox x:Name="commonListBox"
+					 Height="250"
+					 Margin="10">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal">
+							<Image Source="{Binding CommonPhoto}"
+								   Width="200"
+								   Margin="10"/>
+							<StackPanel>
+								<TextBlock Text="{Binding FIOTitle}"/>
+								<TextBlock Text="{Binding DateOfBirthDescription}"
+										   Width="500"
+										   TextWrapping="Wrap"/>
+								<TextBlock Text="{Binding PhoneComposition}"
+										   Width="500"
+										   TextWrapping="Wrap"/>
+								<TextBlock Text="{Binding EmailCalories}"/>
+								<TextBlock Text="{Binding BonusCountEnergyValue}"/>
+								<TextBlock Text="{Binding PasswordPFC}"/>
+								<TextBlock Text="{Binding RoleCost}"/>
+							</StackPanel>
+							<StackPanel Margin="10">
+								<Button Content="Удалить"
+										Tag="{Binding ID}"
+										Click="DeleteButtonClick"/>
+								<Button Content="Редактировать"
+										Click="EditButtonClick"
+										Tag="{Binding ID}"/>
+							</StackPanel>
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+			<Button x:Name="AddButton"
+					Content="Добавить"
+					Margin="0,0,10,0"
+					HorizontalAlignment="Right"/>
+		</StackPanel>
+	</Grid>
+</Window>

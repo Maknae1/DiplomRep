@@ -1,0 +1,63 @@
+is_global = true
+build_property.AvaloniaNameGeneratorBehavior = InitializeComponent
+build_property.AvaloniaNameGeneratorDefaultFieldModifier = internal
+build_property.AvaloniaNameGeneratorFilterByPath = *
+build_property.AvaloniaNameGeneratorFilterByNamespace = *
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = DiplomApplication
+build_property.ProjectDir = D:\диплом\DiplomApplication\DiplomApplication\
+
+[D:/диплом/DiplomApplication/DiplomApplication/App.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/AddMenuUserWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/AdminProfile.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/AdminWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/BasketWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/CompositionWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/DirectorProfile.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/DirectorsWindows.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/EditUsersDataWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/FeedBackWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/PromotionWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/QuestionairsWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/SpendingBonusesWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/UsersProfile.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/диплом/DiplomApplication/DiplomApplication/Windows/UserWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

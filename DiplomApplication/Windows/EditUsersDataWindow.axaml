@@ -1,0 +1,91 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DiplomApplication.EditUsersDataWindow"
+		FontFamily="Comic Sans ms"
+		Icon="\MenuItems\logo.png"
+        Title="Окно редактирования">
+	<Window.Styles>
+		<Style Selector="Button">
+			<Setter Property="Background" Value="#fce008"/>
+		</Style>
+	</Window.Styles>
+	<Grid RowDefinitions="*,*,*"
+		  ColumnDefinitions="*,*,*">
+		<StackPanel HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Grid.Column="1"
+					x:Name="userStackPanel"
+					IsVisible="False">
+			<TextBlock Text="Данные пользователя"
+					   Margin="10"
+					   FontSize="18"
+					   FontWeight="DemiBold"/>
+			<TextBlock Text="Фамилия"/>
+			<TextBox Text="{Binding Path = LastName}"/>
+			<TextBlock Text="Имя"/>
+			<TextBox Text="{Binding Path = FirstName}"/>
+			<TextBlock Text="Отчество"/>
+			<TextBox Text="{Binding Path = Patronymic}"/>
+			<TextBlock Text="Email"/>
+			<TextBox Text="{Binding Path = Email}"/>
+			<TextBlock Text="Дата рождения (дд-мм-гггг)"/>
+			<MaskedTextBox x:Name="dateOfBirthTextBox"
+						   Mask="00-00-0000"/>
+			<TextBlock Text="Телефон"/>
+			<MaskedTextBox Text="{Binding Path = Phone}"
+						   Mask="+7 (000) 000-00-00"/>
+			<TextBlock Text="Пароль"/>
+			<TextBox Text="{Binding Path = Password}"/>
+			<TextBlock Text="Изображение"/>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock x:Name="imagePathTextBlock"/>
+				<Button Content="Обзор..."
+						x:Name="fileDialogButton"/>
+				<Button Content="Удалить фото"
+						x:Name="deleteimageButton"/>
+			</StackPanel>
+			<Button x:Name="editButton"
+					Content="Обновить"/>
+		</StackPanel>
+
+		<StackPanel HorizontalAlignment="Center"
+				  VerticalAlignment="Center"
+					Grid.Column="1"
+					x:Name="menuStackPanel"
+					IsVisible="False">
+			<TextBlock Text="Информация о продукции"
+					   Margin="10"
+					   FontSize="18"
+					   FontWeight="DemiBold"/>
+			<TextBlock Text="Наименование"/>
+			<TextBox Text="{Binding Path = Title}"/>
+			<TextBlock Text="Состав"/>
+			<TextBox Text="{Binding Path = Composition}"/>
+			<TextBlock Text="Калории"/>
+			<TextBox Text="{Binding Path = Calories}"/>
+			<TextBlock Text="Описание"/>
+			<TextBox Text="{Binding Path = Description}"/>
+			<TextBlock Text="Энергетическая ценность"/>
+			<TextBox Text="{Binding Path = Energyvalue}"/>
+			<TextBlock Text="Белки"/>
+			<TextBox Text="{Binding Path = Proteins}"/>
+			<TextBlock Text="Жиры"/>
+			<TextBox Text="{Binding Path = Fats}"/>
+			<TextBlock Text="Углеводы"/>
+			<TextBox Text="{Binding Path = Carbohydrates}"/>
+			<TextBlock Text="Изображение"/>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock x:Name="menuImagePathTextBlock"/>
+				<Button Content="Обзор..."
+						x:Name="menufileDialogButton"/>
+				<Button Content="Удалить фото"
+						x:Name="menudeleteimageButton"/>
+			</StackPanel>
+			<Button x:Name="menuEditButton"
+					Content="Обновить"/>
+		</StackPanel>
+	</Grid>
+</Window>
